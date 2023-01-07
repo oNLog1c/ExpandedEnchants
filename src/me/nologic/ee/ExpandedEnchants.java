@@ -143,9 +143,8 @@ public class ExpandedEnchants extends JavaPlugin {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p.getOpenInventory() != null) {
 				Inventory inv = p.getOpenInventory().getTopInventory();
-				if(inv.equals(inventoryManager.customChoose) || inv.equals(inventoryManager.vanillaChoose) || inv.equals(inventoryManager.startInv) || inv.equals(inventoryManager.itemChoose)) p.closeInventory();
+				if(inv.equals(inventoryManager.customChoose) || inv.equals(inventoryManager.vanillaChoose) || inv.equals(inventoryManager.startInv)) p.closeInventory();
 				if(inventoryManager.customRecipeInv.containsKey(p.getUniqueId())) if(inv.equals(inventoryManager.customRecipeInv.get(p.getUniqueId()).inv)) p.closeInventory();
-				if(inventoryManager.itemRecipeInv.containsKey(p.getUniqueId())) if(inv.equals(inventoryManager.itemRecipeInv.get(p.getUniqueId()).inv)) p.closeInventory();
 				if(inventoryManager.vanillaRecipeInv.containsKey(p.getUniqueId())) if(inv.equals(inventoryManager.vanillaRecipeInv.get(p.getUniqueId()).inv)) p.closeInventory();
 			}
 			

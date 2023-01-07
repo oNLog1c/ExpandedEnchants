@@ -7,7 +7,6 @@ me\nologic\ee\command\CommandHandler.class
 me\nologic\ee\util\DoubleItemStack.class
 me\nologic\ee\enchant\AssassinEnchantment.class
 me\nologic\ee\enchant\BeheadingEnchantment.class
-me\nologic\ee\gui\CustomItemRecipeInventory.class
 me\nologic\ee\enchant\WideEnchantment.class
 me\nologic\ee\enchant\LeapingEnchantment.class
 me\nologic\ee\enchant\IcyEnchantment.class
