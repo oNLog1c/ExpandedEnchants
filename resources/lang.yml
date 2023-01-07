@@ -1,15 +1,9 @@
-no-specified-enchant-buy: You haven't specified which enchant you want to buy!
-no-permission-buy-enchant: You don't have permission to buy this enchant!
 not-holding-item: You are not holding an item!
 not-holding-valid-item: You are not holding a valid item!
-buying-not-enabled: Buying enchants is not enabled on this server.
 enchant-not-found: This enchant has not been specified. Are you sure you typed it correctly and that you can enchant it on this item?
 not-compatible-with: This enchant is can't be bought when you have {ench}!
 cant-afford: You can't afford this! The price is {price}
-bought-succes: Succesfully bought {enchantName} for {price}
-buy-failed: Buying the enchantment failed! It had a {chance}% chance of succes! 
 max-level: This enchant is already at the max level on your current item!
-cost-buy-message: Buying {ench} {level} would cost {price} and has a succes chance of {chance}%
 no-permission: You don't have permission for this command!
 contains-higher-level: Item contains a higher level enchantment!
 already-contains: Item already contains this enchantment!

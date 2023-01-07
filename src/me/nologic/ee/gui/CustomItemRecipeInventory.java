@@ -21,13 +21,10 @@ public class CustomItemRecipeInventory implements InventoryHolder {
 	public Inventory inv;
 	
 	public CustomItemRecipeInventory (CustomRecipe recipe) {
-	
-		inv = Bukkit.createInventory(null, 54, "�5�l" + recipe.recipe.getResult().getItemMeta().getDisplayName());
-		
+		inv = Bukkit.createInventory(null, 54, "§5§l" + recipe.recipe.getResult().getItemMeta().getDisplayName());
 		ChangeRecipe(recipe);
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	public void ChangeRecipe(CustomRecipe recipe) {
 		ItemStack bench = new ItemStack(Material.CRAFTING_TABLE);
 		inv.setItem(27, bench);
@@ -86,9 +83,6 @@ public class CustomItemRecipeInventory implements InventoryHolder {
 		inv.setItem(33, result);
 		
 	}
-	
-	
-	
 	
 	@Override
 	public Inventory getInventory()

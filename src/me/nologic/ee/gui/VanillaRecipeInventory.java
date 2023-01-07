@@ -15,40 +15,39 @@ import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class VanillaRecipeInventory implements InventoryHolder
-{
+public class VanillaRecipeInventory implements InventoryHolder {
+
 	public Inventory inv;
 		
 	public VanillaRecipeInventory(VanillaEnchantmentRecipe recipe, String name) {
 		inv = Bukkit.createInventory(null, 27, name);
 		ChangeRecipe(recipe);
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	public void ChangeRecipe(VanillaEnchantmentRecipe recipe) {
 		ItemStack bench = new ItemStack(Material.ANVIL);
 		ItemMeta benchMeta = bench.getItemMeta();
-		benchMeta.setDisplayName("�b�l" + LanguageManager.instance.GetTranslatedValue("anvil-name"));
-		benchMeta.setLore(Collections.singletonList("�f" + LanguageManager.instance.GetTranslatedValue("crafted-in-anvil")));
+		benchMeta.setDisplayName("§b§l" + LanguageManager.instance.GetTranslatedValue("anvil-name"));
+		benchMeta.setLore(Collections.singletonList("§f" + LanguageManager.instance.GetTranslatedValue("crafted-in-anvil")));
 		bench.setItemMeta(benchMeta);
 		inv.setItem(12, bench);
 		ItemStack item = new ItemStack(Material.PLAYER_HEAD, 1);
 		SkullMeta meta = (SkullMeta) item.getItemMeta();
 		meta.setOwner("MHF_ArrowLeft");
-		meta.setDisplayName("�e�l" + LanguageManager.instance.GetTranslatedValue("inventory-back"));
+		meta.setDisplayName("§e§l" + LanguageManager.instance.GetTranslatedValue("inventory-back"));
 		item.setItemMeta(meta);
 		inv.setItem(0, item);
 		ItemStack itemResult = new ItemStack(Material.PLAYER_HEAD, 1);
 		SkullMeta metaResult = (SkullMeta) itemResult.getItemMeta();
 		metaResult.setOwner("MHF_ArrowRight");
-		metaResult.setDisplayName("�e�l" + LanguageManager.instance.GetTranslatedValue("inventory-result"));
+		metaResult.setDisplayName("§e§l" + LanguageManager.instance.GetTranslatedValue("inventory-result"));
 		itemResult.setItemMeta(metaResult);
 		inv.setItem(14, itemResult);
 		ItemStack book = new ItemStack(Material.BOOK, 1);
 		ItemMeta bookMeta = book.getItemMeta();
-		bookMeta.setDisplayName("�b�l" + LanguageManager.instance.GetTranslatedValue("book-tool-weapon"));
+		bookMeta.setDisplayName("§b§l" + LanguageManager.instance.GetTranslatedValue("book-tool-weapon"));
 		List<String> lore = new ArrayList<>();
-		for(String string : LanguageManager.instance.GetTranslatedList("book-tool-weapon-lore")) lore.add("�f" + string);
+		for(String string : LanguageManager.instance.GetTranslatedList("book-tool-weapon-lore")) lore.add("§f" + string);
 		bookMeta.setLore(lore);
 		book.setItemMeta(bookMeta);
 		inv.setItem(11, book);

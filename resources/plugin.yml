@@ -1,9 +1,9 @@
-main: me.Loikas.ExpandedEnchants.Main
+main: me.nologic.ee.ExpandedEnchants
 name: ExpandedEnchants
-description: More enchants and improved vanilla system
-author: Loikas
-api-version: 1.17
-version: 1.7
+description: More enchants and improved vanilla system!
+author: Loikas, NoLogic
+api-version: 1.19
+version: 2.0
 softdepend:
 - Vault
 commands:

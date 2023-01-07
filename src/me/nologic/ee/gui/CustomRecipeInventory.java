@@ -115,8 +115,8 @@ public class CustomRecipeInventory implements InventoryHolder
 					if(i == 4) if(craftItem.getType() == Material.ENCHANTED_BOOK) {
 						ItemMeta craftMeta = craftItem.getItemMeta();
 						List<String> craftLore = new ArrayList<>(); 
-						for(String string : LanguageManager.instance.GetTranslatedList("inventory-lore-empty-book-recipe-part1")) craftLore.add("�f" + string); 
-						for(String string : LanguageManager.instance.GetTranslatedList("inventory-lore-empty-book-recipe-part2")) craftLore.add("�b" + string); 
+						for(String string : LanguageManager.instance.GetTranslatedList("inventory-lore-empty-book-recipe-part1")) craftLore.add("§f" + string);
+						for(String string : LanguageManager.instance.GetTranslatedList("inventory-lore-empty-book-recipe-part2")) craftLore.add("§b" + string);
 						craftMeta.setLore(craftLore);
 						craftItem.setItemMeta(craftMeta);
 					}
