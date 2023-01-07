@@ -29,10 +29,8 @@ public class InventoryManager implements Listener {
 
 	public Inventory startInv;
 	public Inventory vanillaChoose;
-	public Inventory itemChoose;
 	public Inventory customChoose;
 	public Map<UUID, CustomRecipeInventory> customRecipeInv = new HashMap<>();
-	public Map<UUID, CustomItemRecipeInventory> itemRecipeInv = new HashMap<>();
 	public Map<UUID, VanillaRecipeInventory> vanillaRecipeInv = new HashMap<>();
 
 	public InventoryManager() {
@@ -56,14 +54,6 @@ public class InventoryManager implements Listener {
 		item.setItemMeta(meta);
 		vanillaChoose.setItem(0, item);
 
-		itemChoose = Bukkit.createInventory(null, 18, "§5§l" + LanguageManager.instance.GetTranslatedValue("inventory-title-item"));
-		ItemStack itemBack = new ItemStack(Material.PLAYER_HEAD, 1);
-		SkullMeta metaItem = (SkullMeta) itemBack.getItemMeta();
-		metaItem.setOwner("MHF_ArrowLeft");
-		metaItem.setDisplayName("§e§l" + LanguageManager.instance.GetTranslatedValue("inventory-back"));
-		itemBack.setItemMeta(metaItem);
-		itemChoose.setItem(0, itemBack);
-
 		customChoose = Bukkit.createInventory(null, 45, "§5§l" + LanguageManager.instance.GetTranslatedValue("inventory-title-choose"));
 		customChoose.setItem(0, item);
 		ItemStack enchBook = new ItemStack(Material.ENCHANTED_BOOK);
@@ -74,11 +64,6 @@ public class InventoryManager implements Listener {
 		enchMeta.setLore(lore);
 		enchBook.setItemMeta(enchMeta);
 		customChoose.setItem(8, enchBook);
-
-		for (int i = 0; i < Functions.GetEnabledCustomItems().size(); i++) {
-			itemChoose.setItem(i + 9, Functions.GetEnabledCustomItems().get(i).recipe.getResult());
-		}
-
 
 		for (int i = 9; i < 47; i++) {
 			ItemStack book = new ItemStack(Material.ENCHANTED_BOOK, 1);
@@ -99,14 +84,11 @@ public class InventoryManager implements Listener {
 		Player player = (Player) e.getWhoClicked();
 		if (e.getClickedInventory() == null) return;
 		Inventory topInv = player.getOpenInventory().getTopInventory();
-		if (topInv.equals(startInv) || topInv.equals(vanillaChoose) || topInv.equals(customChoose) || topInv.equals(itemChoose)) {
+		if (topInv.equals(startInv) || topInv.equals(vanillaChoose) || topInv.equals(customChoose)) {
 			e.setCancelled(true);
 		}
 		if (vanillaRecipeInv.containsKey(player.getUniqueId()))
 			if (player.getOpenInventory().getTopInventory().equals(vanillaRecipeInv.get(player.getUniqueId()).inv))
-				e.setCancelled(true);
-		if (itemRecipeInv.containsKey(player.getUniqueId()))
-			if (player.getOpenInventory().getTopInventory().equals(itemRecipeInv.get(player.getUniqueId()).inv))
 				e.setCancelled(true);
 		if (customRecipeInv.containsKey(player.getUniqueId()))
 			if (player.getOpenInventory().getTopInventory().equals(customRecipeInv.get(player.getUniqueId()).inv))
@@ -115,10 +97,6 @@ public class InventoryManager implements Listener {
 			if (e.getSlot() == 12) {
 				player.closeInventory();
 				player.openInventory(vanillaChoose);
-			}
-			if (e.getSlot() == 13) {
-				player.closeInventory();
-				player.openInventory(itemChoose);
 			}
 			if (e.getSlot() == 14) {
 				player.closeInventory();
@@ -135,24 +113,11 @@ public class InventoryManager implements Listener {
 			if (e.getCurrentItem() != null) {
 				ItemStack item = e.getCurrentItem();
 				EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-				Enchantment ench = (Enchantment) meta.getStoredEnchants().keySet().toArray()[0];
-				String name = Functions.GetEnchantmentName(ench);
+				Enchantment enchantment = (Enchantment) meta.getStoredEnchants().keySet().toArray()[0];
+				String name = Functions.GetEnchantmentName(enchantment);
 				player.closeInventory();
-				vanillaRecipeInv.put(player.getUniqueId(), new VanillaRecipeInventory(ExpandedEnchants.recipeManager.GetRecipe(ench), "�5�l" + name));
+				vanillaRecipeInv.put(player.getUniqueId(), new VanillaRecipeInventory(ExpandedEnchants.recipeManager.GetRecipe(enchantment), "§5§l" + name));
 				player.openInventory(vanillaRecipeInv.get(player.getUniqueId()).inv);
-			}
-		}
-		if (e.getClickedInventory().equals(itemChoose)) {
-			if (e.getSlot() == 0) {
-				player.closeInventory();
-				player.openInventory(startInv);
-				return;
-			}
-			if (e.getCurrentItem() != null) {
-				ItemStack item = e.getCurrentItem();
-				player.closeInventory();
-				itemRecipeInv.put(player.getUniqueId(), new CustomItemRecipeInventory(ExpandedEnchants.GetCustomItemRecipe(item)));
-				player.openInventory(itemRecipeInv.get(player.getUniqueId()).inv);
 			}
 		}
 
@@ -182,14 +147,6 @@ public class InventoryManager implements Listener {
 				if (e.getSlot() == 0) {
 					player.closeInventory();
 					player.openInventory(vanillaChoose);
-				}
-			}
-		}
-		if (itemRecipeInv.containsKey(player.getUniqueId())) {
-			if (e.getClickedInventory().equals(itemRecipeInv.get(player.getUniqueId()).inv)) {
-				if (e.getSlot() == 0) {
-					player.closeInventory();
-					player.openInventory(itemChoose);
 				}
 			}
 		}

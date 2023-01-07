@@ -16,10 +16,9 @@ import org.bukkit.inventory.ShapedRecipe;
 import me.nologic.ee.CustomEnchantsManager;
 import me.nologic.ee.ExpandedEnchants;
 
-public class Functions
-{
+public class Functions {
 	
-	public static List<Block> GetBlocksInBox(List<Block> list, Location origin, int radius, Material type) {
+	public static void GetBlocksInBox(List<Block> list, Location origin, int radius, Material type) {
 		for (int x = -radius; x < radius; x++)
 		{
 			for (int y = -radius; y < radius; y++)
@@ -31,30 +30,9 @@ public class Functions
 				}
 			}
 		}
-		
-		return list;
+
 	}
-	
-	
-	
-	public static String GetItemTypeName(ItemStack item) {
-		if(CheckSwordTypes(item)) return "Sword";
-		if(CheckPickaxeTypes(item)) return "Pickaxe";
-		if(CheckAxeTypes(item)) return "Axe";
-		if(CheckShovelTypes(item)) return "Shovel";
-		if(CheckHoeTypes(item)) return "Hoe";
-		
-		if(item.getType() == Material.BOW) return "Bow";
-		if(item.getType() == Material.CROSSBOW) return "Crossbow";
-		if(item.getType() == Material.ELYTRA) return "Elytra";
-		
-		if(CheckHelmetTypes(item)) return "Helmet";
-		if(CheckChestplateTypes(item)) return "Chestplate";
-		if(CheckLeggingsTypes(item)) return "Leggings";
-		if(CheckBootsTypes(item)) return "Boots";
-		return "null";
-	}
-	
+
 	public static boolean IsSmeltable(Item item) {
 			switch(item.getItemStack().getType()) {
 				case RAW_IRON: return true;
@@ -127,8 +105,9 @@ public class Functions
 				case RAW_GOLD_BLOCK: return Material.GOLD_BLOCK;
 				case RAW_IRON_BLOCK: return Material.IRON_BLOCK;
 				case RAW_COPPER_BLOCK: return Material.COPPER_BLOCK;
-				case SAND: return Material.GLASS;
-				case RED_SAND: return Material.GLASS;
+				case SAND:
+				case RED_SAND:
+					return Material.GLASS;
 				case KELP: return Material.DRIED_KELP;
 				case CACTUS: return Material.GREEN_DYE;
 				case CHORUS_FRUIT: return Material.POPPED_CHORUS_FRUIT;
@@ -137,19 +116,20 @@ public class Functions
 				case WET_SPONGE: return Material.SPONGE;
 				case NETHERRACK: return Material.NETHER_BRICK;
 				case STONE_BRICKS: return Material.CRACKED_STONE_BRICKS;
-				case DARK_OAK_WOOD: return Material.CHARCOAL;
-				case SPRUCE_WOOD: return Material.CHARCOAL;
-				case ACACIA_WOOD: return Material.CHARCOAL;
-				case BIRCH_WOOD: return Material.CHARCOAL;
-				case JUNGLE_WOOD: return Material.CHARCOAL;
-				case OAK_WOOD: return Material.CHARCOAL;
+				case DARK_OAK_WOOD:
+				case SPRUCE_WOOD:
+				case ACACIA_WOOD:
+				case BIRCH_WOOD:
+				case JUNGLE_WOOD:
+				case OAK_WOOD:
+				case STRIPPED_DARK_OAK_WOOD:
+				case STRIPPED_SPRUCE_WOOD:
+				case STRIPPED_BIRCH_WOOD:
+				case STRIPPED_OAK_WOOD:
+				case STRIPPED_JUNGLE_WOOD:
+				case STRIPPED_ACACIA_WOOD:
+					return Material.CHARCOAL;
 				case QUARTZ_BLOCK: return Material.SMOOTH_QUARTZ;
-				case STRIPPED_DARK_OAK_WOOD: return Material.CHARCOAL;
-				case STRIPPED_SPRUCE_WOOD: return Material.CHARCOAL;
-				case STRIPPED_ACACIA_WOOD: return Material.CHARCOAL;
-				case STRIPPED_BIRCH_WOOD: return Material.CHARCOAL;
-				case STRIPPED_JUNGLE_WOOD: return Material.CHARCOAL;
-				case STRIPPED_OAK_WOOD: return Material.CHARCOAL;
 
 				default: return null;
 			}
@@ -159,17 +139,7 @@ public class Functions
 	public static int GetRandomNumber(int min, int max) {
 		return (int) (Math.floor(Math.random() * (max - min + 1)) + min);
 	}
-	
-	public static double GetRandomNumber(double min, double max) {
-		return Math.random() * (max - min) + min;
-	}
-	
-	public static int Factorialize(int num) {
-		if(num < 0) return -1;
-		else if (num == 0) return 1;
-		else return (num * Factorialize(num - 1));
-	}
-	
+
 	public static int GetArmorPoints(Material mat) {
 		switch (mat)
 		{
@@ -250,23 +220,12 @@ public class Functions
 		if(ExpandedEnchants.getInstance().getConfig().getBoolean("WideEnabled")) enchs.add(CustomEnchantsManager.WIDE);
 		return enchs;
 	}
-	
-	public static List<CustomRecipe> GetEnabledCustomItems() {
-		List<CustomRecipe> items = new ArrayList<>();
-		if(ExpandedEnchants.getInstance().getConfig().getBoolean("SoulboundTotemEnabled")) items.add(ExpandedEnchants.customItems.get(0));
-		if(ExpandedEnchants.getInstance().getConfig().getBoolean("SoulboundTotemLevel2Enabled")) items.add(ExpandedEnchants.customItems.get(1));
-		return items;
-	}
-	
+
 	public static int GetEnchIndex(Enchantment thing, List<Enchantment> list) {
 		for(int i = 0; i < list.size(); i++) if(list.get(i).equals(thing)) return i;
 		return -1;
 	}
-	public static int GetItemIndex(ShapedRecipe thing, List<CustomRecipe> list) {
-		for(int i = 0; i < list.size(); i++) if(list.get(i).recipe.equals(thing)) return i;
-		return -1;
-	}
-	
+
 	public static int GetSlot(int i) {
 		switch(i) {
 		case 0:
@@ -399,29 +358,7 @@ public class Functions
 			default: return false;
 		}
 	}
-	
-	public static boolean CheckStrippedLogTypes(Material item) {
-		switch(item) {
-			case STRIPPED_ACACIA_LOG: return true;
-			case STRIPPED_ACACIA_WOOD: return true;
-			case STRIPPED_BIRCH_LOG: return true;
-			case STRIPPED_BIRCH_WOOD: return true;
-			case STRIPPED_CRIMSON_HYPHAE: return true;
-			case STRIPPED_CRIMSON_STEM: return true;
-			case STRIPPED_DARK_OAK_LOG: return true;
-			case STRIPPED_DARK_OAK_WOOD: return true;
-			case STRIPPED_JUNGLE_LOG: return true;
-			case STRIPPED_JUNGLE_WOOD: return true;
-			case STRIPPED_OAK_LOG: return true;
-			case STRIPPED_OAK_WOOD: return true;
-			case STRIPPED_SPRUCE_LOG: return true;
-			case STRIPPED_SPRUCE_WOOD: return true;
-			case STRIPPED_WARPED_HYPHAE: return true;
-			case STRIPPED_WARPED_STEM: return true;
-			default: return false;
-		}
-	}
-	
+
 	public static boolean CheckNonStrippedLogTypes(Material item) {
 		switch(item) {
 			case ACACIA_LOG: return true;
@@ -526,8 +463,8 @@ public class Functions
 	
 	public static boolean ContainsCustomEnchant(ItemStack item) {
 		boolean containsCustom = false;		
-		for(Enchantment ench : CustomEnchantsManager.custom_enchants) {
-			if(item.getItemMeta().hasEnchant(ench)) containsCustom = true;
+		for(Enchantment enchantment : CustomEnchantsManager.custom_enchants) {
+			if(item.getItemMeta().hasEnchant(enchantment)) containsCustom = true;
 		}
 		return containsCustom;
 	}
@@ -536,7 +473,10 @@ public class Functions
 		boolean isCustom = false;
 		
 		for(Enchantment enchant : CustomEnchantsManager.custom_enchants) {
-			if(ench.equals(enchant)) isCustom = true;
+			if (ench.equals(enchant)) {
+				isCustom = true;
+				break;
+			}
 		}
 		return isCustom;
 	}
@@ -616,49 +556,55 @@ public class Functions
 		return mats;
 	}
 
-	@SuppressWarnings("incomplete-switch")
 	public static int GetFoodPoints(Material mat) {
 		switch(mat) {
-		case APPLE: return 4;
-		case BAKED_POTATO: return 5;
-		case BEETROOT: return 1;
-		case BEETROOT_SOUP: return 6;
-		case BREAD: return 5;
-		case CARROT: return 3;
-		case COOKED_BEEF: return 8;
-		case COOKED_CHICKEN: return 6;
-		case COOKED_COD: return 5;
-		case COOKED_MUTTON: return 6;
-		case COOKED_PORKCHOP: return 8;
-		case COOKED_RABBIT: return 5;
-		case COOKED_SALMON: return 6;
-		case COOKIE: return 2;
-		case GLOW_BERRIES: return 2;
-		case GOLDEN_CARROT: return 6;
-		case HONEY_BOTTLE: return 6;
-		case MELON_SLICE: return 2;
-		case MUSHROOM_STEW: return 6;
-		case PUMPKIN_PIE: return 8;
-		case POTATO: return 1;
-		case RABBIT_STEW: return 10;
-		case SWEET_BERRIES: return 2;
-		case CHORUS_FRUIT: return 4;
-		case DRIED_KELP: return 1;
-		case ENCHANTED_GOLDEN_APPLE: return 4;
-		case GOLDEN_APPLE: return 4;
-		case POISONOUS_POTATO: return 2;
-		case PUFFERFISH: return 1;
-		case BEEF: return 3;
-		case CHICKEN: return 2;
-		case COD: return 2;
-		case MUTTON: return 2;
-		case PORKCHOP: return 3;
-		case RABBIT: return 3;
-		case SALMON: return 2;
-		case ROTTEN_FLESH: return 4;
-		case SPIDER_EYE: return 2;
-		case SUSPICIOUS_STEW: return 6;
-		case TROPICAL_FISH: return 1; 
+		case APPLE:
+			case CHORUS_FRUIT:
+			case ENCHANTED_GOLDEN_APPLE:
+			case GOLDEN_APPLE:
+			case ROTTEN_FLESH:
+				return 4;
+		case BAKED_POTATO:
+			case BREAD:
+			case COOKED_COD:
+			case COOKED_RABBIT:
+				return 5;
+		case BEETROOT:
+			case POTATO:
+			case DRIED_KELP:
+			case PUFFERFISH:
+			case TROPICAL_FISH:
+				return 1;
+		case BEETROOT_SOUP:
+			case COOKED_CHICKEN:
+			case COOKED_MUTTON:
+			case COOKED_SALMON:
+			case GOLDEN_CARROT:
+			case HONEY_BOTTLE:
+			case MUSHROOM_STEW:
+			case SUSPICIOUS_STEW:
+				return 6;
+			case CARROT:
+			case BEEF:
+			case PORKCHOP:
+			case RABBIT:
+				return 3;
+		case COOKED_BEEF:
+			case COOKED_PORKCHOP:
+			case PUMPKIN_PIE:
+				return 8;
+			case COOKIE:
+			case GLOW_BERRIES:
+			case MELON_SLICE:
+			case SWEET_BERRIES:
+			case POISONOUS_POTATO:
+			case SALMON:
+			case SPIDER_EYE:
+			case MUTTON:
+			case COD:
+			case CHICKEN:
+				return 2;
+			case RABBIT_STEW: return 10;
 		}
 
 		return 0;
@@ -666,44 +612,44 @@ public class Functions
 
 	public static String GetEnchantmentName(Enchantment ench) {
 		
-		if(ench.equals(Enchantment.ARROW_DAMAGE)) return "Power";
-		if(ench.equals(Enchantment.ARROW_FIRE)) return "Flame";
-		if(ench.equals(Enchantment.ARROW_INFINITE)) return "Infinity";
-		if(ench.equals(Enchantment.ARROW_KNOCKBACK)) return "Punch";
-		if(ench.equals(Enchantment.BINDING_CURSE)) return "Curse of Binding";
-		if(ench.equals(Enchantment.CHANNELING)) return "Channeling";
-		if(ench.equals(Enchantment.DAMAGE_ALL)) return "Sharpness";
-		if(ench.equals(Enchantment.DAMAGE_ARTHROPODS)) return "Bane of Arthropods";
-		if(ench.equals(Enchantment.DAMAGE_UNDEAD)) return "Smite";
-		if(ench.equals(Enchantment.DEPTH_STRIDER)) return "Depth Strider";
-		if(ench.equals(Enchantment.DIG_SPEED)) return "Efficiency";
-		if(ench.equals(Enchantment.PROTECTION_ENVIRONMENTAL )) return "Protection";
-		if(ench.equals(Enchantment.PROTECTION_FIRE )) return "Fire Protection";
-		if(ench.equals(Enchantment.PROTECTION_FALL )) return "Feather Falling";
-		if(ench.equals(Enchantment.PROTECTION_EXPLOSIONS )) return "Blast Protection";
-		if(ench.equals(Enchantment.PROTECTION_PROJECTILE )) return "Projectile Protection";
-		if(ench.equals(Enchantment.OXYGEN )) return "Respiration";
-		if(ench.equals(Enchantment.WATER_WORKER )) return "Aqua Affinity";
-		if(ench.equals(Enchantment.THORNS )) return "Thorns";
-		if(ench.equals(Enchantment.FIRE_ASPECT)) return "Fire Aspect";
-		if(ench.equals(Enchantment.LOOT_BONUS_MOBS )) return "Looting";
-		if(ench.equals(Enchantment.SILK_TOUCH )) return "Silk Touch";
-		if(ench.equals(Enchantment.DURABILITY )) return "Unbreaking";
-		if(ench.equals(Enchantment.LOOT_BONUS_BLOCKS )) return "Fortune";
-		if(ench.equals(Enchantment.LUCK )) return "Luck";
-		if(ench.equals(Enchantment.LURE )) return "Lure";
-		if(ench.equals(Enchantment.LOYALTY)) return "Loyalty";
-		if(ench.equals(Enchantment.MULTISHOT)) return "Multishot";
-		if(ench.equals(Enchantment.MENDING)) return "Mending";
-		if(ench.equals(Enchantment.PIERCING)) return "Piercing";
-		if(ench.equals(Enchantment.QUICK_CHARGE)) return "Quick Charge";
-		if(ench.equals(Enchantment.RIPTIDE)) return "Riptide";
-		if(ench.equals(Enchantment.SWEEPING_EDGE)) return "Sweeping Edge";
-		if(ench.equals(Enchantment.VANISHING_CURSE)) return "Curse of Vanishing";
-		if(ench.equals(Enchantment.FROST_WALKER)) return "Frost Walker";
-		if(ench.equals(Enchantment.IMPALING)) return "Impaling";
-		if(ench.equals(Enchantment.KNOCKBACK)) return "Knockback";
-		if(ench.equals(Enchantment.SOUL_SPEED)) return "Soul Speed";
+		if(ench.equals(Enchantment.ARROW_DAMAGE)) return "Сила";
+		if(ench.equals(Enchantment.ARROW_FIRE)) return "Воспламенение";
+		if(ench.equals(Enchantment.ARROW_INFINITE)) return "Бесконечность";
+		if(ench.equals(Enchantment.ARROW_KNOCKBACK)) return "Отбрасывание";
+		if(ench.equals(Enchantment.BINDING_CURSE)) return "Проклятие несъёмности";
+		if(ench.equals(Enchantment.CHANNELING)) return "Громовержец";
+		if(ench.equals(Enchantment.DAMAGE_ALL)) return "Острота";
+		if(ench.equals(Enchantment.DAMAGE_ARTHROPODS)) return "Бич членистоногих";
+		if(ench.equals(Enchantment.DAMAGE_UNDEAD)) return "Небесная кара";
+		if(ench.equals(Enchantment.DEPTH_STRIDER)) return "Подводная ходьба";
+		if(ench.equals(Enchantment.DIG_SPEED)) return "Эффективность";
+		if(ench.equals(Enchantment.PROTECTION_ENVIRONMENTAL )) return "Защита";
+		if(ench.equals(Enchantment.PROTECTION_FIRE )) return "Огнеупорность";
+		if(ench.equals(Enchantment.PROTECTION_FALL )) return "Невесомость";
+		if(ench.equals(Enchantment.PROTECTION_EXPLOSIONS )) return "Взрывоустойчивость";
+		if(ench.equals(Enchantment.PROTECTION_PROJECTILE )) return "Защита от снарядов";
+		if(ench.equals(Enchantment.OXYGEN )) return "Подводное дыхание";
+		if(ench.equals(Enchantment.WATER_WORKER )) return "Подводник";
+		if(ench.equals(Enchantment.THORNS )) return "Шипы";
+		if(ench.equals(Enchantment.FIRE_ASPECT)) return "Заговор огня";
+		if(ench.equals(Enchantment.LOOT_BONUS_MOBS )) return "Добыча";
+		if(ench.equals(Enchantment.SILK_TOUCH )) return "Шелковое касание";
+		if(ench.equals(Enchantment.DURABILITY )) return "Прочность";
+		if(ench.equals(Enchantment.LOOT_BONUS_BLOCKS )) return "Удача";
+		if(ench.equals(Enchantment.LUCK )) return "Везучий рыбак";
+		if(ench.equals(Enchantment.LURE )) return "Приманка";
+		if(ench.equals(Enchantment.LOYALTY)) return "Верность";
+		if(ench.equals(Enchantment.MULTISHOT)) return "Тройной выстрел";
+		if(ench.equals(Enchantment.MENDING)) return "Починка";
+		if(ench.equals(Enchantment.PIERCING)) return "Пронзающая стрела";
+		if(ench.equals(Enchantment.QUICK_CHARGE)) return "Быстрая перезарядка";
+		if(ench.equals(Enchantment.RIPTIDE)) return "Тягун";
+		if(ench.equals(Enchantment.SWEEPING_EDGE)) return "Разящий клинок";
+		if(ench.equals(Enchantment.VANISHING_CURSE)) return "Проклятье утраты";
+		if(ench.equals(Enchantment.FROST_WALKER)) return "Ледоход";
+		if(ench.equals(Enchantment.IMPALING)) return "Пронзатель";
+		if(ench.equals(Enchantment.KNOCKBACK)) return "Отдача";
+		if(ench.equals(Enchantment.SOUL_SPEED)) return "Скорость души";
 		return "";
 	}
 	
