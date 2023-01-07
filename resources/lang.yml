@@ -1,0 +1,253 @@
+no-specified-enchant-buy: You haven't specified which enchant you want to buy!
+no-permission-buy-enchant: You don't have permission to buy this enchant!
+not-holding-item: You are not holding an item!
+not-holding-valid-item: You are not holding a valid item!
+buying-not-enabled: Buying enchants is not enabled on this server.
+enchant-not-found: This enchant has not been specified. Are you sure you typed it correctly and that you can enchant it on this item?
+not-compatible-with: This enchant is can't be bought when you have {ench}!
+cant-afford: You can't afford this! The price is {price}
+bought-succes: Succesfully bought {enchantName} for {price}
+buy-failed: Buying the enchantment failed! It had a {chance}% chance of succes! 
+max-level: This enchant is already at the max level on your current item!
+cost-buy-message: Buying {ench} {level} would cost {price} and has a succes chance of {chance}%
+no-permission: You don't have permission for this command!
+contains-higher-level: Item contains a higher level enchantment!
+already-contains: Item already contains this enchantment!
+already-max-level: Enchantment is already max level on this item!
+enchanted-with: Enchanted item with [{enchant}] 
+cant-apply: Can't apply enchant to this item!
+contains-conflict: Item contains conflicting enchantment!
+gave-book: Gave book with [{enchant}] 
+
+thrusters-cooldown: Ускорение элитр будет недоступно ещё {seconds}!
+
+deflect-no-emeralds: §4Нет изумрудов для поглощения урона!
+deflect-not-enough: §4Недостаточно изумрудов для поглощения урона!
+deflect-damage-deflected: §c§lУрон был поглощён!
+deflect-cooldown: §7Поглощение урона откатится через {seconds} секунд!
+
+assassin-hidden-for: Вы прячетесь в тенях, осталось {seconds} секунд!
+assassin-recharging: Спрятаться в тенях нельзя ещё {seconds} секунд!
+
+bows: Луки
+helmets: Шлемы
+chestplates: Нагрудники
+leggings: Поножи
+boots: Ботинки
+pickaxes: Кирки
+elytras: Элитры
+axes: Топоры
+fishingrods: Удочки
+swords: Мечи
+hoes: Мотыги
+shears: Ножницы
+shovels: Лопаты
+tridents: Трезубцы
+crossbows: Арбалеты
+all-enchantable-items: Все зачаровываемые предметы
+all-items-durability: Все предметы, имеющие прочность
+
+nothing: Ничего
+
+empty-book-inventory-title: Пустая чародейская книга
+inventory-back: Назад
+inventory-result: ">>"
+inventory-description: Описание
+inventory-can-enchant: Совместимые предметы
+inventory-conflicts: "Несовместимые чары"
+inventory-max-level: "Максимальный уровень:"
+inventory-title-recipes: Рецепты зачарований
+inventory-title-vanilla: Ванильные зачарования
+inventory-title-item: Кастомные предметы
+inventory-title-custom: Кастомные зачарования
+inventory-title-choose: Выберите зачарование
+inventory-lore-empty-book: 
+    - Рецепт пустой чародейской книги, которая
+    - требуется для крафта всех кастомных чар.
+inventory-lore-empty-book-recipe-part1:
+    - Пустая зачарованная книга. Крафт можно найти
+    - в меню выбора кастомных зачарований в верхнем
+    - правом углу.
+inventory-lore-empty-book-recipe-part2:
+    - Кроме того, это может быть книга с зачарованием
+    - уровнем ниже того, которые вы хотите создать.
+anvil-name: Наковальня
+crafted-in-anvil: Для крафта используется наковальня.
+book-tool-weapon: Универсальность
+book-tool-weapon-lore:
+    - При создании чары можно накладывать на любые книги,
+    - а так же на подходящие под них инструменты и оружие.
+antigravity-desc:
+    - Чары, которые убирают у стрел гравитацию.
+    - "§7При слабом натягивании тетивы возникнет эффект слоу-мо!"
+assassin-desc:
+    - Мощные чары, позволяющие владельцу становиться невидимым
+    - в любое время по своему желанию. Работают только с другими
+    - игроками. Монстры всё так же будут преследовать владельца.
+    - Невидимость прерываема, а длительность зависит от уровня.
+    - "§cК слову, невидимость прерывается и уходит в перезарядку"
+    - "§cсразу после того, как владелец кого-нибудь ударит."
+    - "§7Для входждения в невидимость нужно нажать SHIFT."
+autosmelt-desc:
+    - Инструмент с этими чарами будет плавить руду и брёвна.
+    - "§7Совместимо с фортуной и телепортирующим касанием."
+beheading-desc:
+    - Более высокий шанс срубить чью-нибудь голову.
+    - "§7Каждый уровень добавляет 5% к общему шансу."
+deflect-desc:
+    - За 1 изумруд поглощает урон раз в 30 секунд.
+    - Поглощает любой урон, будь то урон от падения с
+    - тысячи блоков, взрыв заряженного крипера или
+    - обычный удар игрока. 
+    - "§7Каждый уровень снижает кулдаун на 3 секунды."
+direct-desc:
+    - Чары, перемещающие дроп с блоков и монстров в инвентарь.
+disarming-desc:
+    - Раз в 30 секунд, с небольшим шансом, чары могут выбить из
+    - рук противника его оружие. Так же это срабатывает и на броне.
+disruption-desc:
+    - Оружие с этими чарами запрещает магию телепортации и
+    - наносит больше урона всем монстрам, кто ей пользуется.
+elementalprotection-desc: 
+    - Чары, защищающие пользователя от природного урона.
+    - "§2- Уровень 1: Отравление"
+    - "§2- Уровень 2: Отравление и иссушение"
+    - "§2- Уровень 3: Отравление, иссушение, урон от пустоты"
+eyesofowl-desc:
+    - Шлем с этим зачарованием дарует носителю ночное зрение!
+experienceboost-desc:
+    - "Чары, удваивающие опыт. §7(15% за 1 уровень)"
+    - "§7Не действует на опыт из mcMMO."
+feedingmodule-desc: ["Неиспользуемое зачарование."]
+gourmand-desc:
+    - С этим зачарованием улучшится вкус еды,
+    - а ещё она будет сильнее насыщать носителя.
+healthboost-desc:
+    - Чары, увеличивающие здоровье носителя.
+    - За каждый уровень зачарования по сердцу.
+heavenslightness-desc:
+    - "Чары, дарующие вечный эффект «замедленного падения»."
+icy-desc:
+    - Оружие с этими чарами будет накладывать на цель
+    - замедление, длительность которого зависит от
+    - "уровня зачарования. §cСрабатывает раз в 10 секунд§r."
+    - "§7Игроки не смогут прыгать."
+lavawalker-desc:
+    - Чары, позволяющие перемещаться по лаве.
+    - "§7Заменяют лаву под ногами на базальт."
+    - "§cОтключены из-за уебанской реализации."
+leaping-desc:
+    - "Чары, дарующие вечный эффект «высокого прыжка»."
+lifesteal-desc:
+    - Чары, крадущие жизнь у убитых противников.
+    - "§7По половине сердца за каждый уровень."
+lumberjack-desc:
+    - Топор с этими чарами будет рубить всё дерево целиком.
+    - С каждым уровнем потребность в еде будет всё меньше.
+    - "§7ps. Для работы нужно зажимать SHIFT!"
+oresight-desc:
+    - Крайне мощные чары, позволяющие владельцу чувствовать
+    - расположение руды неподалёку. Тип руды, которую владелец
+    - будет чувствовать, напрямую зависит от уровня зачарования.
+    - "§2Например: 2 уровень чар показывает только железо и медь,"
+    - "§2уголь (1 уровень) он отображать НЕ БУДЕТ. 6 уровень будет"
+    - "§2показывать исключительно залежи незерита, и ничего больше."
+    - ""
+    - "§6Уровни чар:"
+    - "§31. §eУголь"
+    - "§32. §eЖелезо и медь"
+    - "§33. §eЗолото"
+    - "§34. §eЛазурит и редстоун"
+    - "§35. §eАлмазы и изумруды"
+    - "§36. §eДревние обломки"
+replanting-desc:
+    - Мотыга с этими чарами будет собирать выросшее растение
+    - и автоматически пересаживать его, словно это были вы.
+    - "§7Использование: ПКМ по растению."
+shadowstep-desc:
+    - Это мощное зачарование улучшает навыки скрытности,
+    - благодаря чему §cвладельца реже замечают монстры§r.
+    - "§7С каждым уровнем чар уменьшается дистанция агра."
+soulbound-desc:
+    - Предметы с этим мощным зачарованием остаются у
+    - владельца даже после его смерти, что существенно.
+    - "§4ЕСЛИ ВЫЙТИ ИЗ ИГРЫ ПОСЛЕ СМЕРТИ НЕ НАЖАВ РЕСПАВН,"
+    - "§4§lПРЕДМЕТЫ МОГУТ БЫТЬ УТЕРЯНЫ."
+splitting-desc:
+    - При попадании в цель, стрела будет разделяться и
+    - дополнительно атаковать другие ближайшие цели.
+    - "§cБерегитесь огня по своим!"
+stepping-desc: ["Неиспользуемое зачарование."]
+stonefists-desc:
+    - Из-за этих чар, кулаки становятся такими же твёрдыми,
+    - как камень, и это неплохо так повышает урон с руки.
+    - "§7ps. Советую использовать с безоружным боем из mcMMO."
+thermalplating-desc:
+    - Мощные чары, позволяющие получить неуязвимость к огню.
+    - "§cДля эффекта чары должны быть на каждом элементе брони."
+thrusters-desc:
+    - Чары, ускоряющие владельца во время полёта на элитрах.
+    - "§7ps. Для ускорения нужно нажать SHIFT во время полёта!"
+traveler-desc:
+    - Чары, повышающие скорость перемещения носителя.
+    - "§7Сочетаются с зельем скорости. Придерживайте шлем!"
+unbreakable-desc:
+    - Эти мощные чары укрепят предмет настолько, 
+    - что он станет неразрушаемым. Нет, правда.
+veinmine-desc:
+    - Если сломать один блок руды киркой, на которой
+    - будут эти чары, то сломаются все соседние блоки руды. 
+    - Чем выше уровень, тем слабее будет потребляться еда.
+    - "§7ps. Для работы нужно зажимать SHIFT!"
+wide-desc:
+    - Мощные и крайне удобные чары, позволяющие ломать блоки 3х3.
+    - "§7ps. Для работы нужно зажимать SHIFT!"
+soulboundtotem1-desc:
+    - A one time use totem which allows
+    - you to keep all your items on death.
+soulboundtotem2-desc:
+    - A one time use totem which allows 
+    - you to keep all your items and 
+    - all your levels on death.
+flamingfall-desc:
+    - При падении, эти чары подожгут всех живых существ вокруг владельца.
+
+antigravity-name: Анти-гравитация
+assassin-name: Шиноби
+autosmelt-name: Плавящее касание
+beheading-name: Палач
+deflect-name: Поглощение
+direct-name: Телепортирующее касание
+disarming-name: Обезоруживание
+disruption-name: Анти-телепортация
+elementalprotection-name: Природная устойчивость
+eyesofowl-name: Ночной дозор
+experienceboost-name: Находчивость
+feedingmodule-name: Обед по расписанию
+flamingfall-name: Звездопад
+gourmand-name: Гурман
+healthboost-name: Крепыш
+heavenslightness-name: Лёгкость бытия
+icy-name: Заговор льда
+lavawalker-name: Хождение по лаве
+leaping-name: Распрыжка
+lifesteal-name: Вампиризм
+lumberjack-name: Дровосек
+oresight-name: Рентгеновское зрение
+replanting-name: Фермерская смекалка
+shadowstep-name: Мягкий шаг
+soulbound-name: Неразлучность
+splitting-name: Кластерные стрелы
+stepping-name: Длинный шаг
+stonefists-name: Каменные кулаки
+thermalplating-name: Термоустойчивость
+thrusters-name: Воздушный поток
+traveler-name: Беглец
+unbreakable-name: Неразрушаемость
+veinmine-name: Дварфийская смекалка
+wide-name: Экскаватор
+
+
+
+
+
